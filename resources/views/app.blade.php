@@ -98,13 +98,13 @@
             swal("Gagal!", "{{ session('error') }}", "error");
         </script>
     @endif
-    @if (Request::is('list_ruangan'))
+    @if (Request::is('menu'))
         <script>
-            function buttonModalEditRuangan(params) {
-                console.log(params)
+            function buttonModalEditMenu(params) {
                 $('#ModalEditRuangan').modal('show');
-                $("#formModalNamaRuangan").val(params.nama_ruangan);
-                $("#formModalIdRuangan").val(params.id_ruangan);
+                $("#formModalIdMenu").val(params.id_menu);
+                $("#formModalNamaMenu").val(params.nama_menu);
+                $("#formModalIdLink").val(params.link);
             }
         </script>
     @endif

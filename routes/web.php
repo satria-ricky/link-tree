@@ -19,9 +19,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     
     Route::get('/menu',[MenuController::class,'list_menu']);
-    Route::post('/tambah_ruangan', [MenuController::class, 'tambah_ruangan']);
-    Route::post('/edit_ruangan', [MenuController::class, 'edit_ruangan']);
-    Route::post('/hapus_ruangan', [MenuController::class, 'hapus_ruangan']);
+    Route::post('/tambah_menu', [MenuController::class, 'tambah_menu']);
+    Route::post('/edit_menu', [MenuController::class, 'edit_menu']);
+    Route::post('/hapus_menu', [MenuController::class, 'hapus_menu']);
 
 
     Route::get('/list_aset',[AsetController::class,'list_aset']);

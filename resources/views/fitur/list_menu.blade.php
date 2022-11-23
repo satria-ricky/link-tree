@@ -44,17 +44,18 @@
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="text-center">{{ $item->nama_menu }}</td>
-                                            <td class="text-center">{{ $item->link }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ $item->link }}"> {{ $item->link }} </a>
+                                            </td>
                                             <td class="text-center" style="width: 153px">
                                                 <div style="display:flex;">
 
                                                     <button class="btn btn-sm btn-info " type="button"
-                                                        onclick="buttonModalEditRuangan({{ $item }})"><i
+                                                        onclick="buttonModalEditMenu({{ $item }})"><i
                                                             class="fa fa-paste"></i> Edit</button>
-                                                    <form action="hapus_menu" method="post">
+                                                    <form action="/hapus_menu" method="post">
                                                         @csrf
-                                                        <input type="hidden" name="id"
-                                                            value="{{ $item->id_menu }}">
+                                                        <input type="hidden" name="id" value="{{ $item->id_menu }}">
                                                         <button class="btn btn-sm btn-danger ml-2" type="submit"
                                                             onclick="return confirm('Are you sure?')"><i
                                                                 class="fa fa-trash"></i> Hapus</button>
@@ -88,14 +89,18 @@
                     <form role="form" method="post" action="/tambah_menu">
                         @csrf
                         <div class="form-group">
-                            <label>Nama Menu</label>
+                            <label>Judul</label>
                             <input class="form-control" type="text" name="nama_menu" required autocomplete="off">
                             @error('nama_menu')
                                 <script>
                                     swal("Oppss!", "Nama menu telah tersedia!", "error");
                                 </script>
                             @enderror
+                        </div>
 
+                        <div class="form-group">
+                            <label>Link</label>
+                            <input class="form-control" type="text" name="link" required autocomplete="off">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -117,13 +122,17 @@
                 </div>
                 <div class="modal-body bg-white">
 
-                    <form role="form" method="post" action="/edit_ruangan">
+                    <form role="form" method="post" action="/edit_menu">
                         @csrf
                         <div class="form-group">
                             <label>Judul</label>
                             <input type="hidden" name="id" id="formModalIdMenu">
-                            <input class="form-control" type="text" name="nama_menu" id="formModalNamaMenu"
-                                required autocomplete="off">
+                            <input class="form-control" type="text" name="nama_menu" id="formModalNamaMenu" required
+                                autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label>Link</label>
+                            <input class="form-control" id="formModalIdLink" type="text" name="link" required autocomplete="off">
                         </div>
                 </div>
                 <div class="modal-footer">

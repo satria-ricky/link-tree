@@ -13,45 +13,49 @@ class MenuController extends Controller
         return view("fitur.list_menu", compact("dataMenu","title"));
     }
     
-    public function tambah_ruangan(Request $req)
+    public function tambah_menu(Request $req)
     {
         // dd($req);
         $this->validate(
             $req,
-            ['nama_ruangan' => 'required|unique:ruangans,nama_ruangan'],
-            ['nama_ruangan.unique' => 'Nama ruangan telah tersedia!']
+            ['nama_menu' => 'required|unique:menus,nama_menu'],
+            ['nama_menu.unique' => 'Nama menu telah tersedia!']
         );
 
         $hasil = [
-            'nama_ruangan' => $req['nama_ruangan'],
+            'nama_menu' => $req['nama_menu'],
+            'link' => $req['link'],
         ];
 
         Menu::create($hasil);
-        return redirect('/list_ruangan')->with('success', 'Data Ruangan Ditambah');
+        return redirect('/menu')->with('success', 'Data Berhasil Ditambah');
     }
 
 
-    public function edit_ruangan(Request $req)
+    public function edit_menu(Request $req)
     {
         // dd($req);
         $this->validate(
             $req,
-            ['nama_ruangan' => 'required|unique:ruangans,nama_ruangan'],
-            ['nama_ruangan.unique' => 'Nama ruangan telah tersedia!']
+            ['nama_menu' => 'required|unique:menus,nama_menu'],
+            ['nama_menu.unique' => 'Nama menu telah tersedia!']
         );
 
-        Menu::all()->where('id_ruangan', $req['id'])->first()->update([
-            'nama_ruangan' => $req['nama_ruangan']
-        ]);
+        $hasil = [
+            'nama_menu' => $req['nama_menu'],
+            'link' => $req['link'],
+        ];
 
-        return redirect('/list_ruangan')->with('success', 'Data Ruangan Diubah');
+        Menu::all()->where('id_menu', $req['id'])->first()->update($hasil);
+
+        return redirect('/menu')->with('success', 'Data Berhasil Diubah');
     }
 
-    public function hapus_ruangan(Request $req)
+    public function hapus_menu(Request $req)
     {
         $data = Menu::findOrFail($req['id']);
         $data->delete();
 
-        return redirect('/list_ruangan')->with('success', 'Data Berhasil Dihapus');
+        return redirect('/menu')->with('success', 'Data Berhasil Dihapus');
     }
 }
