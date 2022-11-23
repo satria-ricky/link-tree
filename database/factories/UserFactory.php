@@ -16,8 +16,8 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'username' => $this->faker->unique()->userName(),
+            'name' => 'nama admin',
+            'username' => 'admin',
             'password' => Hash::make('123'),
         ];
     }
@@ -31,7 +31,7 @@ class UserFactory extends Factory
     {
         return $this->state(function (array $attributes) {
             return [
-                'email_verified_at' => null,
+                
             ];
         });
     }

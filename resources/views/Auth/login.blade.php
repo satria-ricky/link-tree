@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            Inventaris Aset IF-UNRAM
+            Link-Tree IF-UNRAM
             <small>© 2022</small>
         </div>
         <div class="col-md-2 text-right">

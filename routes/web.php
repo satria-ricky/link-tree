@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -17,10 +18,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/profil',  [UserController::class, 'tampil_profil']);
 
     
-    Route::get('/list_ruangan',[RuanganController::class,'list_ruangan']);
-    Route::post('/tambah_ruangan', [RuanganController::class, 'tambah_ruangan']);
-    Route::post('/edit_ruangan', [RuanganController::class, 'edit_ruangan']);
-    Route::post('/hapus_ruangan', [RuanganController::class, 'hapus_ruangan']);
+    Route::get('/menu',[MenuController::class,'list_menu']);
+    Route::post('/tambah_ruangan', [MenuController::class, 'tambah_ruangan']);
+    Route::post('/edit_ruangan', [MenuController::class, 'edit_ruangan']);
+    Route::post('/hapus_ruangan', [MenuController::class, 'hapus_ruangan']);
 
 
     Route::get('/list_aset',[AsetController::class,'list_aset']);

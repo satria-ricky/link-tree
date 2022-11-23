@@ -18,10 +18,10 @@
                         <a href="/"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
                     </li> --}}
                     <li  class="@if(Request::is('menu')) active @endif">
-                        <a href="/list_ruangan"><i class="fa fa-sticky-note"></i> <span class="nav-label">Menu</span></a>
+                        <a href="/menu"><i class="fa fa-sticky-note"></i> <span class="nav-label">Menu</span></a>
                     </li>
                     <li  class="@if(Request::is('submenu')) active @elseif(Request::is('edit_aset/*')) active @endif">
-                        <a href="/list_aset"><i class="fa fa-sticky-note"></i> <span class="nav-label">Sub Menu</span></a>
+                        <a href="/submenu"><i class="fa fa-sticky-note"></i> <span class="nav-label">Sub Menu</span></a>
                     </li>
                 </ul>
 
