@@ -101,6 +101,7 @@
     @if (Request::is('menu'))
         <script>
             function buttonModalEditMenu(params) {
+                console.log(params);
                 $('#ModalEditRuangan').modal('show');
                 $("#formModalIdMenu").val(params.id_menu);
                 $("#formModalNamaMenu").val(params.nama_menu);
@@ -109,107 +110,21 @@
         </script>
     @endif
 
-    @if (Request::is('list_aset'))
+    @if (Request::is('submenu'))
         <script>
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
+            function buttonModalEditSubMenu(params) {
+                // console.log(params);
+                $('#ModalEditRuangan').modal('show');
+                $("#idSubmenu").val(params.id_submenu);
+                // $("#formModalIdmenu").val(params.id_menu);
+                document.getElementById('formModalIdmenu').value = params.id_menu;
 
-            let startYear = 1800;
-            let endYear = new Date().getFullYear();
-            for (i = endYear; i > startYear; i--) {
-                $('#id_tahun_pengadaan').append($('<option />').val(i).html(i));
-                // $('#id_perbaikan_terakhir').append($('<option />').val(i).html(i));
-            }
-
-            $(document).on('change', '#idRuangan', function() {
-                var id = document.getElementById("idRuangan").value;
-                $('#dataTabelAset').DataTable().destroy();
-
-                $('#dataTabelAset').dataTable({
-                    "ajax": {
-                        "url": "{{ url('asetByRuangan') }}",
-                        "type": "POST",
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            id_ruangan: id
-                        },
-                        columns: [{
-                            data: 'id_aset',
-                            name: 'id_aset'
-                        },
-                        {
-                            data: 'kode_aset',
-                            name: 'kode_aset'
-                        },
-                        {
-                            data: 'nama',
-                            name: 'nama'
-                        },
-                        {
-                            data: 'jumlah',
-                            name: 'jumlah'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action',
-                        },
-                    ]
-                    }
-                });
-
-
-                $('#tabelproduk').DataTable({
-                    processing: true,
-                    serverSide: true,
-                    ajax: "{{ url('/cp_bahan') }}",
-                    columns: [{
-                            data: 'protap_nama',
-                            name: 'protap_nama'
-                        }, {
-                            data: 'kode',
-                            name: 'kode'
-                        },
-                        {
-                            data: 'nama',
-                            name: 'nama'
-                        },
-                        {
-                            data: 'jumlah',
-                            name: 'jumlah'
-                        },
-                        {
-                            data: 'ruang',
-                            name: 'ruang'
-                        },
-                        {
-                            data: 'status',
-                            name: 'status'
-                        },
-                        {
-                            data: 'action',
-                            name: 'action'
-                        }
-                    ]
-                });
-                
-            });
-        </script>
-    @endif
-
-    @if (Request::is('edit_aset/*'))
-        <script src="{{ asset('js/peta_edit_pasar.js') }}"></script>
-        <script>
-            let startYear = 1800;
-            let endYear = new Date().getFullYear();
-            for (i = endYear; i > startYear; i--) {
-                $('#id_tahun_pengadaan').append($('<option />').val(i).html(i));
-                document.getElementById('id_tahun_pengadaan').value = {{ $dataAset->tahun_pengadaan }};
+                $("#formModalJudul").val(params.nama_submenu);
+                $("#formModalLink").val(params.link_submenu);
             }
         </script>
     @endif
+
 
 </body>
 

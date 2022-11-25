@@ -33,6 +33,8 @@
                         <img src="{{ asset('storage/logo/logoPSTI.jpg') }}" width="100" height="100" />
                         @if (Session::has('message'))
                         <p class="alert alert-danger mt-2">{{ Session::get('message') }}</p>
+                        @elseif (Session::has('success'))
+                        <p class="alert alert-success mt-2">{{ session('success') }}</p>
                     @endif
                     </center>
                 </div>

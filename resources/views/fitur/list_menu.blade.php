@@ -45,7 +45,7 @@
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="text-center">{{ $item->nama_menu }}</td>
                                             <td class="text-center">
-                                                <a href="{{ $item->link }}"> {{ $item->link }} </a>
+                                                <a href="{{ $item->link }}" target="_blank"> {{ $item->link }} </a>
                                             </td>
                                             <td class="text-center" style="width: 153px">
                                                 <div style="display:flex;">
@@ -100,7 +100,7 @@
 
                         <div class="form-group">
                             <label>Link</label>
-                            <input class="form-control" type="text" name="link" required autocomplete="off">
+                            <input class="form-control" type="text" name="link" autocomplete="off">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -128,11 +128,11 @@
                             <label>Judul</label>
                             <input type="hidden" name="id" id="formModalIdMenu">
                             <input class="form-control" type="text" name="nama_menu" id="formModalNamaMenu" required
-                                autocomplete="off">
+                                autocomplete="off" >
                         </div>
                         <div class="form-group">
                             <label>Link</label>
-                            <input class="form-control" id="formModalIdLink" type="text" name="link" required autocomplete="off">
+                            <input class="form-control" id="formModalIdLink" type="text" name="link" autocomplete="off">
                         </div>
                 </div>
                 <div class="modal-footer">

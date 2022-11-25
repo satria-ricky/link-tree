@@ -17,7 +17,7 @@ class CreateSubMenusTable extends Migration
             $table->id('id_submenu');
             $table->integer('id_menu');
             $table->string('nama_submenu')->nullable();
-            $table->string('link')->nullable();
+            $table->string('link_submenu')->nullable();
             $table->timestamps();
         });
     }

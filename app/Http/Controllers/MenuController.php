@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class MenuController extends Controller
 {
-    public function list_menu() {
+    public function list_menu()
+    {
         $title = "Daftar Menu";
         $dataMenu = Menu::all();
-        return view("fitur.list_menu", compact("dataMenu","title"));
+        // dd($dataMenu);
+        return view("fitur.list_menu", compact("dataMenu", "title"));
     }
-    
+
     public function tambah_menu(Request $req)
     {
         // dd($req);
@@ -35,11 +37,15 @@ class MenuController extends Controller
     public function edit_menu(Request $req)
     {
         // dd($req);
-        $this->validate(
-            $req,
-            ['nama_menu' => 'required|unique:menus,nama_menu'],
-            ['nama_menu.unique' => 'Nama menu telah tersedia!']
-        );
+        $data = Menu::findOrFail($req['id']);
+
+        if ($data->nama_menu != $req['nama_menu']) {
+            $this->validate(
+                $req,
+                ['nama_menu' => 'required|unique:menus,nama_menu'],
+                ['nama_menu.unique' => 'Nama menu telah tersedia!']
+            );
+        }
 
         $hasil = [
             'nama_menu' => $req['nama_menu'],

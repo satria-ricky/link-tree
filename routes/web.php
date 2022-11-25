@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SubMenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,15 +25,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/hapus_menu', [MenuController::class, 'hapus_menu']);
 
 
-    Route::get('/list_aset',[AsetController::class,'list_aset']);
-    Route::post('/tambah_aset', [AsetController::class, 'tambah_aset']);
-    Route::post('/hapus_aset', [AsetController::class, 'hapus_aset']);
-    Route::get('/edit_aset/{id}', [AsetController::class, 'tampil_edit_aset']);
-    Route::post('/edit_aset', [AsetController::class, 'edit_aset']);
+    Route::get('/submenu',[SubMenuController::class,'list_submenu']);
+    Route::post('/tambah_submenu', [SubMenuController::class, 'tambah_submenu']);
+    Route::post('/hapus_submenu', [SubMenuController::class, 'hapus_submenu']);
+    Route::post('/edit_submenu', [SubMenuController::class, 'edit_submenu']);
 
     Route::post('/logout', [UserController::class, 'logout']);
 });
 
-Route::get('/', [UserController::class, 'index'])->name('home');
-Route::get('/login', [UserController::class, 'tampil_login'])->name('login');
-Route::post('/login', [UserController::class, 'login']);
+// Route::get('/', [UserController::class, 'tampil_home']);
+// Route::get('/auth', [UserController::class, 'tampil_login'])->name("login");
+
+Route::group(['middleware' => 'guest'], function () {
+    Route::get('/login', [UserController::class, 'tampil_login'])->name('login');
+    Route::post('/login', [UserController::class, 'login']);
+    
+});
+
+Route::get('/', [UserController::class, 'index']);

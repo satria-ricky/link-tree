@@ -68,7 +68,7 @@ class UserController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect('/home')->with('success', 'Berhasil Logout!');
+        return redirect('/login')->with('success', 'Berhasil Logout!');
     }
     
 }
