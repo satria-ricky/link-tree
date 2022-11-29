@@ -1,10 +1,7 @@
 #mycss {
   background-color: #ffffff;
-    /* border-color: #1ab394; */
-    /* border-image: none; */
     border: solid;
     border-color: #1ab394;
-    /* color: inherit; */
     margin-bottom: 0;
     padding: 15px 90px 8px 15px;
     min-height: 48px;
@@ -15,6 +12,7 @@
     border-radius: 8px;
     color: #1ab394;
     transition: background-color  0.80s;
+    margin-right: 20px;
 }
 
 #mycss:hover {
@@ -24,11 +22,11 @@
 
 
 #mycss_content {
-  background-color: #ffffff;
+  background-color: white;
     /* border-color: #1ab394; */
     /* border-image: none; */
     border: solid;
-    border-color: #1ab394;
+    border-color: #f8ac59;
     /* color: inherit; */
     margin-bottom: 0;
     padding: 15px 90px 8px 15px;
@@ -38,46 +36,17 @@
     -webkit-border-radius: 3px 3px 0 0;
     -moz-border-radius: 3px 3px 0 0;
     border-radius: 8px;
-    color: #1ab394;
+    color: #f8ac59 ;
     transition: background-color  0.80s;
 }
 
 #mycss_content:hover {
   color: white;
-  background-color: #1ab394;
-  border-color: #1ab394;
+  background-color: #f8ac59;
+  border-color: #f8ac59;
 }
 
 
-#side-menu {
-  list-style-type: none;
-  color: #1ab394;
-  font-weight: 600;
-  font-size: 18px;
-  padding: 14px 20px 14px 20px;
-  display: block;
-  background-color: white;
-  border: solid;
-  cursor: pointer;
-  border-color: #1ab394;
-  transition: background-color  0.80s;
-  /* border-radius: 4px; */
-  border-radius: 8px;
-  /* background-color: #1ab394; */
-  /*  margin-left: 1px; */
-}
-
-.mycss:hover {
-  color: white;
-  background-color: #1ab394;
-  border-color: #1ab394;
-}
-
-.myjudul {
-  color: #1ab394;
-}
-
-/* .mycss .nav > li.active > a  {
   color: white;
   font-size: 18px;
   border: none;

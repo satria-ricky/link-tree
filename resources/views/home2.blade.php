@@ -50,24 +50,45 @@
             <div class="col-md-6 text-center  animated fadeInRight">
 
 
-                <div class="ibox">
-                    <a class="collapse-link">
-                        <div class="ibox-title" id="mycss">
-                            <h5> Judul Link</h5>
-                            <div class="ibox-tools">
-                                <i class="fa fa-chevron-up"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <div style="display: none; border: none; padding-top: 10px; padding-left: 20px;text-align: left;" class="ibox-content" id="">
-                        <a href="http://" target="_blank">
-                            <div class="mb-4" id="mycss_content">
-                                To add a badge style You have to add 
+                @foreach ($dataMenu as $menu)
+                    <div class="ibox">
+                        <a class="collapse-link"
+                            @if ($menu->link == '') href="#"
+                            @else
+                                href="{{ $menu->link }}" @endif>
+
+                            <div class="ibox-title" id="mycss">
+                                <h5> {{ $menu->nama_menu }}</h5>
+
+                                @foreach ($dataSubmenu as $icon_menu)
+                                    @if ($menu->id_menu == $icon_menu->id_menu)
+                                        <div class="ibox-tools">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </a>
 
+
+                        @foreach ($dataSubmenu as $submenu)
+                            @if ($menu->id_menu == $submenu->id_menu)
+                                <div style="display: none; border: none; padding-top: 10px; padding-left: 20px;text-align: left;"
+                                    class="ibox-content">
+                                    <a href="{{ $submenu->link_submenu }}" target="_blank">
+                                        <div class="mb-4" id="mycss_content">
+                                            {{ $submenu->nama_submenu }}
+                                        </div>
+                                    </a>
+
+                                </div>
+                            @endif
+                        @endforeach
+
                     </div>
-                </div>
+                @endforeach
+
+
 
                 {{-- @foreach ($dataMenu as $menu)
                     <div class="dropdown mt-2" style="">
