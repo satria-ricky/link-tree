@@ -122,7 +122,7 @@
                         </div>
                         <div class="form-group">
                             <label>Link</label>
-                            <input class="form-control" type="text" name="link_submenu">
+                            <input class="form-control" type="text" name="link_submenu" required>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -163,7 +163,7 @@
                         </div>
                         <div class="form-group">
                             <label>Link</label>
-                            <input class="form-control" type="text" id="formModalLink" name="link_submenu">
+                            <input class="form-control" type="text" id="formModalLink" name="link_submenu" required>
                         </div>
                 </div>
                 <div class="modal-footer">

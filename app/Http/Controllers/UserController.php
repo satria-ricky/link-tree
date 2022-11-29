@@ -16,8 +16,8 @@ class UserController extends Controller
         $dataSubmenu = SubMenu::all();
         $data = DB::select('SELECT menus.* FROM menus LEFT JOIN sub_menus ON menus.id_menu = sub_menus.id_menu');
         
-        return view('home',[
-            'title' => 'Home page',
+        return view('home2',[
+            'title' => 'Link - Tree',
             'data' => $data,
             'dataMenu' => $dataMenu,
             'dataSubmenu' => $dataSubmenu

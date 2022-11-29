@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MenuController extends Controller
 {
@@ -60,6 +61,7 @@ class MenuController extends Controller
     public function hapus_menu(Request $req)
     {
         $data = Menu::findOrFail($req['id']);
+        DB::table('sub_menus')->where('id_menu', $req['id'])->delete();
         $data->delete();
 
         return redirect('/menu')->with('success', 'Data Berhasil Dihapus');

@@ -57,7 +57,7 @@
                                                         @csrf
                                                         <input type="hidden" name="id" value="{{ $item->id_menu }}">
                                                         <button class="btn btn-sm btn-danger ml-2" type="submit"
-                                                            onclick="return confirm('Are you sure?')"><i
+                                                            onclick="return confirm('Are you sure? The Submenus will be deleted also')"><i
                                                                 class="fa fa-trash"></i> Hapus</button>
                                                     </form>
                                                 </div>

@@ -78,7 +78,8 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
-            Link-Tree IF-UNRAM
+            <a href="/" class="text-muted"> Link-Tree IF-UNRAM </a>
+            
             <small>© 2022</small>
         </div>
         <div class="col-md-2 text-right">
