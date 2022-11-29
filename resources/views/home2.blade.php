@@ -52,10 +52,13 @@
 
                 @foreach ($dataMenu as $menu)
                     <div class="ibox">
-                        <a class="collapse-link"
-                            @if ($menu->link == '') href="#"
+                        <a 
+                            @if ($menu->link == '') 
+                            class="collapse-link"
+                                href="#"
                             @else
-                                href="{{ $menu->link }}" @endif>
+                                href="{{ $menu->link }}" target="_blank" @endif
+                                >
 
                             <div class="ibox-title" id="mycss">
                                 <h5> {{ $menu->nama_menu }}</h5>
