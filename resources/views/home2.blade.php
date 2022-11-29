@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
+    <link href={{ asset('css/mycss.css') }} rel="stylesheet">
     <link href={{ asset('css/bootstrap.min.css') }} rel="stylesheet">
     <link href={{ asset('font-awesome/css/font-awesome.css') }} rel="stylesheet">
     <link href={{ asset('css/animate.css') }} rel="stylesheet">
     <link href={{ asset('css/style.css') }} rel="stylesheet">
     <link href={{ asset('css/custom.css') }} rel="stylesheet">
-    <link href={{ asset('css/mycss.css') }} rel="stylesheet">
+
 
     <link rel="shortcut icon" type="image/png" href="https://pkl.if.unram.ac.id/assets/img/fav.png" sizes="16x16" />
 </head>
@@ -35,54 +36,77 @@
         </nav>
     </div>
 
-
-    <div>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1 class="wow zoomIn animated"> Link - Tree </h1>
-                        @foreach ($dataMenu as $menu)
-                            <div class="dropdown mt-2" style="">
-
-                                <a style="color: aliceblue;"
-                                    class=" @foreach ($dataSubmenu as $icon_menu) @if ($menu->id_menu == $icon_menu->id_menu) dropdown-toggle @endif @endforeach"
-                                    @if ($menu->link == '') href="#" id="dropdownMenuLink{{ $menu->id_menu }}"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @else href='{{ $menu->link }}' @endif>
-                                    {{ $menu->nama_menu }}
-                                </a>
-
-                                @foreach ($dataSubmenu as $submenu)
-                                    @if ($menu->id_menu == $submenu->id_menu)
-                                        <div class="dropdown-content"
-                                            aria-labelledby="dropdownMenuLink{{ $menu->id_menu }}">
-
-                                            @foreach ($dataSubmenu as $submenu)
-                                                @if ($menu->id_menu == $submenu->id_menu)
-                                                    <a class="" href='{{ $submenu->link_submenu }}' target="_blank">
-                                                        {{ $submenu->nama_submenu }}</a>
-                                                @endif
-                                            @endforeach
-
-
-                                        </div>
-                                    @endif
-                                @endforeach
-                            </div>
-                            <div class="divider">
-                                <hr>
-                            </div>
-                        @endforeach
-                        {{-- <img src="{{ asset('storage/logo/logoPSTI.jpg') }}" alt="Praktek Kerja Lapangan"  width="150" height="150">  --}}
-                    </div>
-                    <div class="carousel-image wow zoomIn animated"> <img
-                        src="{{ asset('storage/logo/logoPSTI.jpg') }}" alt="Praktek Kerja Lapangan"  width="150" height="150"> </div>
-                </div>
-                <div class="header-back"></div>
+    <section class="container features">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1><span class="navy" style="font-weight: bold;"> Link - Tree</span> </h1>
+                {{-- <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p> --}}
             </div>
         </div>
-    </div>
+        <div class="row">
+            <div class="col-md-3 text-center wow fadeInLeft">
+            </div>
+            <div class="col-md-6 text-center  animated fadeInRight">
 
+
+                <div class="ibox">
+                    <a class="collapse-link">
+                        <div class="ibox-title" id="mycss">
+                            <h5> Judul Link</h5>
+                            <div class="ibox-tools">
+                                <i class="fa fa-chevron-up"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <div style="display: none; border: none; padding-top: 10px; padding-left: 20px;text-align: left;" class="ibox-content" id="">
+                        <a href="http://" target="_blank">
+                            <div class="mb-4" id="mycss_content">
+                                To add a badge style You have to add 
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                {{-- @foreach ($dataMenu as $menu)
+                    <div class="dropdown mt-2" style="">
+
+                        <a style="color: aliceblue;"
+                            class=" @foreach ($dataSubmenu as $icon_menu) @if ($menu->id_menu == $icon_menu->id_menu) dropdown-toggle @endif @endforeach"
+                            @if ($menu->link == '') href="#" id="dropdownMenuLink{{ $menu->id_menu }}"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @else href='{{ $menu->link }}' @endif>
+                            {{ $menu->nama_menu }}
+                        </a>
+
+                        @foreach ($dataSubmenu as $submenu)
+                            @if ($menu->id_menu == $submenu->id_menu)
+                                <div class="dropdown-content" aria-labelledby="dropdownMenuLink{{ $menu->id_menu }}">
+
+                                    @foreach ($dataSubmenu as $submenu)
+                                        @if ($menu->id_menu == $submenu->id_menu)
+                                            <a class="" href='{{ $submenu->link_submenu }}' target="_blank">
+                                                {{ $submenu->nama_submenu }}</a>
+                                        @endif
+                                    @endforeach
+
+
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
+                    <div class="divider">
+                        <hr>
+                    </div>
+                @endforeach --}}
+
+
+            </div>
+            <div class="col-md-3 text-center wow fadeInRight">
+            </div>
+        </div>
+
+    </section>
 
     <section id="contact" class="gray-section contact">
         <div class="container">

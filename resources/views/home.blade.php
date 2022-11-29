@@ -23,29 +23,36 @@
         <h3>Link - Tree</h3>
         <hr>
         @foreach ($dataMenu as $menu)
-            <div class="dropdown show">
-                <a class="btn btn-secondary  @foreach ($dataSubmenu as $icon_menu) @if ($menu->id_menu == $icon_menu->id_menu) dropdown-toggle @endif @endforeach"
-                    href="#" role="button" id="dropdownMenuLink{{ $menu->id_menu }}" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    {{ $menu->nama_menu }}
-                </a>
+                            <div class="dropdown mt-2" style="">
 
-                @foreach ($dataSubmenu as $submenu)
-                    @if ($menu->id_menu == $submenu->id_menu)
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink{{ $menu->id_menu }}">
-                            @foreach ($dataSubmenu as $konten_submenu)
-                                @if ($konten_submenu->id_menu == $menu->id_menu)
-                                    <a class="dropdown-item" href="#"> {{ $konten_submenu->nama_submenu }}</a>
-                                @endif
-                            @endforeach
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-            <div class="divider">
-                <hr>
-            </div>
-        @endforeach
+                                <a style="color: aliceblue;"
+                                    class=" @foreach ($dataSubmenu as $icon_menu) @if ($menu->id_menu == $icon_menu->id_menu) dropdown-toggle @endif @endforeach"
+                                    @if ($menu->link == '') href="#" id="dropdownMenuLink{{ $menu->id_menu }}"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" @else href='{{ $menu->link }}' @endif>
+                                    {{ $menu->nama_menu }}
+                                </a>
+
+                                @foreach ($dataSubmenu as $submenu)
+                                    @if ($menu->id_menu == $submenu->id_menu)
+                                        <div class="dropdown-content"
+                                            aria-labelledby="dropdownMenuLink{{ $menu->id_menu }}">
+
+                                            @foreach ($dataSubmenu as $submenu)
+                                                @if ($menu->id_menu == $submenu->id_menu)
+                                                    <a class="" href='{{ $submenu->link_submenu }}' target="_blank">
+                                                        {{ $submenu->nama_submenu }}</a>
+                                                @endif
+                                            @endforeach
+
+
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="divider">
+                                <hr>
+                            </div>
+                        @endforeach
 
 
 
