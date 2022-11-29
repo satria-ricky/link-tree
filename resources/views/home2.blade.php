@@ -39,8 +39,8 @@
     <section class="container features">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1><span class="navy" style="font-weight: bold;"> Link - Tree</span> </h1>
+                <div class="navy-line" style="color:#29375B"></div>
+                <h1><span class="" style="font-weight: bold; color:#29375B;"> Link - Tree</span> </h1>
                 {{-- <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p> --}}
             </div>
         </div>
@@ -49,8 +49,36 @@
             </div>
             <div class="col-md-6 text-center  animated fadeInRight">
 
+                <div id="accordion">
+                    @foreach ($dataMenu as $menu)
+                        <a
+                            @if ($menu->link == '') href="#" data-toggle="collapse" data-target="#collapse{{ $menu->id_menu }}" aria-expanded="true" aria-controls="collapse{{ $menu->id_menu }}"
+                            @else
+                                href="{{ $menu->link }}" target="_blank" @endif>
+                            <div class="mycss mb-4" id="heading{{ $menu->id_menu }}">
+                                {{ $menu->nama_menu }}
+                                @if ($menu->link == '')
+                                    <i class="fa fa-chevron-right"></i>
+                                @endif
+                            </div>
+                        </a>
 
-                @foreach ($dataMenu as $menu)
+                        @foreach ($dataSubmenu as $submenu)
+                            @if ($menu->id_menu == $submenu->id_menu)
+                                <div id="collapse{{ $menu->id_menu }}" class="collapse mb-2" aria-labelledby="heading{{ $menu->id_menu }}"
+                                    data-parent="#accordion">
+
+                                    <a href="{{ $submenu->link_submenu }}" target="_blank">
+                                        <div class="mycss_content mb-4">
+                                            {{ $submenu->nama_submenu }}
+                                        </div>
+                                    </a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endforeach
+                </div>
+                {{-- @foreach ($dataMenu as $menu)
                     <div class="ibox">
                         <a 
                             @if ($menu->link == '') 
@@ -89,7 +117,7 @@
                         @endforeach
 
                     </div>
-                @endforeach
+                @endforeach --}}
 
 
 
@@ -177,7 +205,7 @@
     <script src={{ asset('js/plugins/pace/pace.min.js') }}></script>
     <script src={{ asset('js/plugins/wow/wow.min.js') }}></script>
 
-
+    <script src={{ asset('js/myjs.js') }}></script>
     <script src={{ asset('js/beranda.js') }}></script>
 
 
