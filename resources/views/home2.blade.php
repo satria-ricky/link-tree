@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
-    <link href={{ asset('css/mycss.css') }} rel="stylesheet">
     <link href={{ asset('css/bootstrap.min.css') }} rel="stylesheet">
     <link href={{ asset('font-awesome/css/font-awesome.css') }} rel="stylesheet">
     <link href={{ asset('css/animate.css') }} rel="stylesheet">
@@ -60,7 +59,7 @@
                 <a
                     @if ($menu->link == '') href="#" data-toggle="collapse" data-target="#collapse{{ $menu->id_menu }}" aria-expanded="true" aria-controls="collapse{{ $menu->id_menu }}"
                             @else
-                                href="{{ $menu->link }}" target="_blank" @endif>
+                                href="{{ $menu->link }}" onclick="window.open('{{ $menu->link }}', '_blank')" @endif>
                     <div class="mycss mb-4" id="heading{{ $menu->id_menu }}">
                         {{ $menu->nama_menu }}
                         @if ($menu->link == '')
