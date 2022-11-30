@@ -7943,7 +7943,7 @@ body.landing-page {
   width: 60px;
   height: 1px;
   margin: 60px auto 0;
-  border-bottom: 2px solid #1ab394;
+  border-bottom: 2px solid #29375B;
 }
 .landing-page .navbar {
   padding: 0 1rem;
@@ -8010,7 +8010,7 @@ body.landing-page {
 }
 .landing-page .navbar-default .navbar-brand:hover,
 .landing-page .navbar-default .navbar-brand:focus {
-  background: #179d82;
+  background: #FF6A3D;
   color: #fff;
 }
 .landing-page .navbar-default .navbar-brand {
@@ -8018,7 +8018,7 @@ body.landing-page {
   height: auto;
   display: block;
   font-size: 14px;
-  background: #1ab394;
+  background: #29375B;
   padding: 15px 20px 15px 20px;
   border-radius: 0 0 5px 5px;
   font-weight: 700;
