@@ -49,41 +49,48 @@
             <div class="col-md-3 text-center wow fadeInLeft">
             </div>
             <div class="col-md-6 text-center  animated fadeInRight">
-
+                <?php $status = true; $tutup = true; $tanda=0; ?>
                 <div id="accordion">
                     @foreach ($dataMenu as $menu)
-                        <a
-                            @if ($menu->link == '') href="#" data-toggle="collapse" data-target="#collapse{{ $menu->id_menu }}" aria-expanded="true" aria-controls="collapse{{ $menu->id_menu }}"
+                        @if ($status)
+                            <?php $status = false; ?>
+                        @else
+                </div>
+                @endif
+                <a
+                    @if ($menu->link == '') href="#" data-toggle="collapse" data-target="#collapse{{ $menu->id_menu }}" aria-expanded="true" aria-controls="collapse{{ $menu->id_menu }}"
                             @else
                                 href="{{ $menu->link }}" target="_blank" @endif>
-                            <div class="mycss mb-4" id="heading{{ $menu->id_menu }}">
-                                {{ $menu->nama_menu }}
-                                @if ($menu->link == '')
-                                    <i class="fa fa-chevron-right"></i>
-                                @endif
-                            </div>
-                        </a>
+                    <div class="mycss mb-4" id="heading{{ $menu->id_menu }}">
+                        {{ $menu->nama_menu }}
+                        @if ($menu->link == '')
+                            <i class="fa fa-chevron-right"></i>
+                        @endif
+                    </div>
+                </a>
 
-                        @foreach ($dataSubmenu as $submenu)
-                            @if ($menu->id_menu == $submenu->id_menu)
-                                <div id="collapse{{ $menu->id_menu }}" class="collapse mb-2"
-                                    aria-labelledby="heading{{ $menu->id_menu }}" data-parent="#accordion">
-
-                                    <a href="{{ $submenu->link_submenu }}" target="_blank">
-                                        <div class="mycss_content mb-4">
-                                            {{ $submenu->nama_submenu }}
-                                        </div>
-                                    </a>
+                @foreach ($dataSubmenu as $submenu)
+                    @if ($menu->id_menu == $submenu->id_menu)
+                        @if( $tanda != $menu->id_menu)
+                        <div id="collapse{{ $menu->id_menu }}" class="collapse mb-2"
+                            aria-labelledby="heading{{ $menu->id_menu }}" data-parent="#accordion">
+                        @endif
+                            <a href="{{ $submenu->link_submenu }}" target="_blank">
+                                <div class="mycss_content mb-4">
+                                    {{ $submenu->nama_submenu }}
                                 </div>
-                            @endif
-                        @endforeach
-                    @endforeach
-                </div>
+                            </a>
+                            <?php $tanda = $menu->id_menu ?>
+                    @endif
+                @endforeach
+                @endforeach
+            {{-- </div> --}}
+            </div>
 
 
-            </div>
-            <div class="col-md-3 text-center wow fadeInRight">
-            </div>
+        </div>
+        <div class="col-md-3 text-center wow fadeInRight">
+        </div>
         </div>
 
     </section>
